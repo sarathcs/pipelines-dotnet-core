@@ -3,7 +3,7 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-# trigger:
+trigger: none
 # - master
 
 pool:
@@ -11,6 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  appName: 'hello-world-pipeline'
 
 steps:
 - task: Bash@3
