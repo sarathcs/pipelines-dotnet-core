@@ -6,12 +6,13 @@
 trigger: none
 # - master
 
-pool:
-  vmImage: ubuntu-latest
-
 variables:
   buildConfiguration: 'Release'
   appName: 'hello-world-pipeline'
+  cronExpression: '* * * * */5'
+
+pool:
+  vmImage: ubuntu-latest
 
 steps:
 - task: Bash@3
@@ -20,7 +21,7 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      echo 'Hello world from Task Assistant .NET'
+      echo 'Running $(appName) from Task Assistant .NET $(cronExpression)'
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build with Release Config'
