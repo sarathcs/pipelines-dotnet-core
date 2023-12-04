@@ -13,12 +13,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
       # Write your commands here
       echo 'Hello world from Task Assistant .NET'
+
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build with Release Config'
+
   
